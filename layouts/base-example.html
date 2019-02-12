@@ -1,0 +1,20 @@
+<!-- Example of the implementention of this 
+  template in the base.html and the elements
+  that need to be added-->
+{# extends "^/layouts/base.html" #}
+  
+{% block style %}
+  {{ super() }}  
+
+  <!-- Curtains Styles-->
+  {% include "headers/curtains.html" %}
+
+{% endblock style %}
+
+{% block content %}
+  {{ super() }}
+
+  <!-- Curtains -->
+  {% include "chunks/curtains.html" %}
+
+{% endblock content %}

@@ -118,6 +118,167 @@
     -o-transform: matrix(-1, 0, 0.2, 1, 0, 0);
     transform: matrix(-1, 0, 0.2, 1, 0, 0);
     width: 0; } }
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+    display: block;
+    visibility: visible; }
+  99.99% {
+    opacity: 0;
+    display: block;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    display: none;
+    visibility: hidden; } }
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+    display: block;
+    visibility: visible; }
+  99.99% {
+    opacity: 0;
+    display: block;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    display: none;
+    visibility: hidden; } }
+@-ms-keyframes fadeOut {
+  0% {
+    opacity: 1;
+    display: block;
+    visibility: visible; }
+  99.99% {
+    opacity: 0;
+    display: block;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    display: none;
+    visibility: hidden; } }
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    display: block;
+    visibility: visible; }
+  99.99% {
+    opacity: 0;
+    display: block;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    display: none;
+    visibility: hidden; } }
+@-webkit-keyframes fadeOutSpotLight {
+  0% {
+    top: 0;
+    opacity: 1;
+    display: block;
+    visibility: visible; }
+  99.99% {
+    top: 0;
+    opacity: 0;
+    display: block;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+    top: 100%; } }
+@-moz-keyframes fadeOutSpotLight {
+  0% {
+    top: 0;
+    opacity: 1;
+    display: block;
+    visibility: visible; }
+  99.99% {
+    top: 0;
+    opacity: 0;
+    display: block;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+    top: 100%; } }
+@-ms-keyframes fadeOutSpotLight {
+  0% {
+    top: 0;
+    opacity: 1;
+    display: block;
+    visibility: visible; }
+  99.99% {
+    top: 0;
+    opacity: 0;
+    display: block;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+    top: 100%; } }
+@keyframes fadeOutSpotLight {
+  0% {
+    top: 0;
+    opacity: 1;
+    display: block;
+    visibility: visible; }
+  99.99% {
+    top: 0;
+    opacity: 0;
+    display: block;
+    visibility: visible; }
+  100% {
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+    top: 100%; } }
+#stage #curtains_input:checked ~ #label_curtains #curtain-left, #stage #curtains_input:checked ~ #label_curtains #curtain-right, #stage #curtains_input:checked ~ #label_curtains, #stage #curtains_input:checked ~ #label_curtains #spotlight {
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+  animation-play-state: running; }
+
+#curtain-left, #curtain-right, #spotlight {
+  animation-play-state: paused; }
+
+#stage #curtains_input:checked ~ #label_curtains #curtain-left {
+  -webkit-animation-name: curtain-left;
+  -moz-animation-name: curtain-left;
+  -ms-animation-name: curtain-left;
+  -o-animation-name: curtain-left;
+  animation-name: curtain-left; }
+
+#stage #curtains_input:checked ~ #label_curtains #curtain-right {
+  -webkit-animation-name: curtain-right;
+  -moz-animation-name: curtain-right;
+  -ms-animation-name: curtain-right;
+  -o-animation-name: curtain-right;
+  animation-name: curtain-right; }
+
+#stage #curtains_input:checked ~ #label_curtains {
+  -webkit-animation-name: fadeOut;
+  -moz-animation-name: fadeOut;
+  -ms-animation-name: fadeOut;
+  -o-animation-name: fadeOut;
+  animation-name: fadeOut; }
+
+#stage #curtains_input:checked ~ #label_curtains #spotlight {
+  -webkit-animation-name: fadeOutSpotLight;
+  -moz-animation-name: fadeOutSpotLight;
+  -ms-animation-name: fadeOutSpotLight;
+  -o-animation-name: fadeOutSpotLight;
+  animation-name: fadeOutSpotLight; }
+
+#stage #curtains_input:checked ~ #label_curtains {
+  animation-delay: 1s; }
+
+.input__hidden {
+  display: none;
+  visibility: hidden; }
+
 #curtain-right {
   right: 0;
   margin-right: -10%;
@@ -143,7 +304,8 @@
   height: 100%;
   margin-left: -10%;
   transition: width 2s, -webkit-transform 1s;
-  z-index: 30; }
+  z-index: 30;
+  will-change: transform; }
 
 .spotlight {
   position: fixed;
@@ -151,12 +313,16 @@
   left: 0;
   bottom: 0;
   right: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
   z-index: 40;
   background: -moz-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 60%), -moz-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 40%);
   background: -o-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 60%), -o-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 40%);
   background: -webkit-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 60%), -webkit-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 40%);
   background: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 60%), radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 40%);
   background-attachment: fixed;
-  background-position: -80px 0, 80px 0; }
+  background-position: -80px 0, 80px 0;
+  will-change: opacity; }
 
 /*# sourceMappingURL=curtains_styles.css.map */
