@@ -1,0 +1,67 @@
+$curtains_gradient_1: (right, rgba(0, 0, 0, 0), #4d4d4d, rgba(51, 51, 51, 0.993), #4d4d4d) 
+$curtains_gradient_2: (right, rgba(51, 51, 51, 0.997), rgba(77, 77, 77, 0.999), rgba(51, 51, 51, 0.998))
+
+$spotlight_gradient_1:  (circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 60%)
+$spotlight_gradient_2:  (circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 40%)
+
+=linear_gradient_background($gradient_values...)
+  @if length($gradient_values)== 1
+    background: -moz-linear-gradient(nth($gradient_values,1))
+    background: -o-linear-gradient(nth($gradient_values,1))
+    background: -webkit-linear-gradient(nth($gradient_values,1))
+    background: linear-gradient(nth($gradient_values,1))
+
+  @if length($gradient_values)== 2
+    background: -moz-linear-gradient(nth($gradient_values,1)),-moz-linear-gradient(nth($gradient_values,2))
+    background: -o-linear-gradient(nth($gradient_values,1)),-o-linear-gradient(nth($gradient_values,2))
+    background: -webkit-linear-gradient(nth($gradient_values,1)),-webkit-linear-gradient(nth($gradient_values,2))
+    background: linear-gradient(nth($gradient_values,1)),linear-gradient(nth($gradient_values,2))
+
+=radial_gradient_background($gradient_values...)
+  @if length($gradient_values)== 1
+    background: -moz-radial-gradient(nth($gradient_values,1))
+    background: -o-radial-gradient(nth($gradient_values,1))
+    background: -webkit-radial-gradient(nth($gradient_values,1))
+    background: radial-gradient(nth($gradient_values,1))
+
+  @if length($gradient_values)== 2
+    background: -moz-radial-gradient(nth($gradient_values,1)),-moz-radial-gradient(nth($gradient_values,2))
+    background: -o-radial-gradient(nth($gradient_values,1)),-o-radial-gradient(nth($gradient_values,2))
+    background: -webkit-radial-gradient(nth($gradient_values,1)),-webkit-radial-gradient(nth($gradient_values,2))
+    background: radial-gradient(nth($gradient_values,1)),radial-gradient(nth($gradient_values,2))
+  
+#curtain-right
+  right: 0
+  margin-right: -10%
+  +transform(matrix(-1, 0, 0, 1, 0, 0))
+
+#stage
+  height: 100%
+  background: black
+
+.curtain
+  position: fixed
+  top: 0px
+
+  +linear_gradient_background($curtains_gradient_1,$curtains_gradient_2)
+  background-size: 67px 67px, 53px 53px
+  width: 60%
+  height: 100%
+  margin-left: -10%
+  transition: width 2s, -webkit-transform 1s
+  z-index: 30  
+
+
+.spotlight
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  // opacity: 0
+  z-index: 40
+  +radial_gradient_background($spotlight_gradient_1,$spotlight_gradient_2)
+  
+  background-attachment: fixed
+  background-position: -80px 0, 80px 0
+  

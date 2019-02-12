@@ -1,0 +1,46 @@
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=transform($value) 
+  -webkit-transform: $value
+  -moz-transform: $value
+  -ms-transform: $value
+  -o-transform: $value
+  transform: $value
+
+=animation_name($value) 
+  -webkit-animation-name: $value
+  -moz-animation-name: $value
+  -ms-animation-name: $value
+  -o-animation-name: $value
+  animation-name: $value
+
+
++keyframes(curtain-left)
+  0%
+    width: 60%
+    +transform(matrix(1, 0, 0, 1, 0, 0))
+
+  100%
+    +transform(matrix(1, 0, -0.2, 1, 0, 0))
+    width: 0    
+
++keyframes(curtain-right)
+  0%
+    width: 60%
+    +transform(matrix(-1, 0, 0, 1, 0, 0))
+
+  100%
+    +transform(matrix(-1, 0, 0.2, 1, 0, 0))
+    width: 0   
+
+%left_cutain_animation
+  +animation_name(curtain-left)
+  
